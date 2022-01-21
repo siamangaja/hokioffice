@@ -198,7 +198,7 @@
         <script>var hostUrl = "assets/";</script>
         <script src="{{ asset('js/plugins.bundle.js') }}"></script>
         <script src="{{ asset('js/scripts.bundle.js') }}"></script>
-        <script src="{{ asset('js/datatables.bundle.js') }}"></script>
+        <!-- <script src="{{ asset('js/datatables.bundle.js') }}"></script> -->
         <!-- <script src="{{ asset('js/view.js') }}"></script> -->
         @stack('scripts')
     </body>
