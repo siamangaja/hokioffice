@@ -21,7 +21,7 @@
     <div id="kt_account_profile_details" class="collapse show">
 
         <!--begin::Form-->
-        <form id="" class="form" action="{{url()->current()}}" method="POST" enctype="multipart/form-data">
+        <form class="form" action="{{url()->current()}}" method="POST" enctype="multipart/form-data">
         @csrf
             <!--begin::Card body-->
             <div class="card-body border-top p-9">

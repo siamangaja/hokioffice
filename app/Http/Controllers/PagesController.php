@@ -13,6 +13,7 @@ use App\Models\Services;
 use App\Models\Testimonials;
 use App\Models\News;
 use App\Models\Features;
+use App\Models\Contacts;
 use Illuminate\Support\Facades\Mail;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
@@ -74,18 +75,27 @@ class PagesController extends Controller
     }
 
     public function submitContact (Request $request) {
-        $datanotif = [
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'msg'       => $request->msg,
-            'subject'   => 'Form kontak website dari: '.$request->name
-        ];
-        $SentMail = Mail::send('email-contact', $datanotif, function($message) use ($datanotif)
-        {
-            $message->to(opsi('email'));
-            $message->subject($datanotif['subject']);
-        });
-        return redirect ('contact')->with("success","Form submitted successfully...");
+        $Add = new Contacts;
+        $Add->name      = $request->name;
+        $Add->email     = $request->email;
+        $Add->phone     = $request->phone;
+        $Add->subject   = $request->subject;
+        $Add->message   = $request->message;
+        $Add->save();
+
+        // $datanotif = [
+        //     'name'      => $request->name,
+        //     'email'     => $request->email,
+        //     'msg'       => $request->msg,
+        //     'subject'   => 'Form kontak website dari: '.$request->name
+        // ];
+        // $SentMail = Mail::send('email-contact', $datanotif, function($message) use ($datanotif)
+        // {
+        //     $message->to(opsi('email'));
+        //     $message->subject($datanotif['subject']);
+        // });
+
+        return redirect ('contact')->with("success","The form has been successfully submitted...");
     }
 
 }

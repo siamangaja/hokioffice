@@ -59,6 +59,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/admin/options', [AdminController::class,'optionsIndex'])->name('options.index');
     Route::get('/admin/options/{id}/edit', [AdminController::class,'optionsEdit'])->name('options.edit');
     Route::post('/admin/options/{id}/edit', [AdminController::class,'optionsUpdate'])->name('options.update');
+
+    Route::get('/admin/contacts', [AdminController::class,'contactsIndex'])->name('contacts.index');
+    Route::get('/admin/contacts/{id}/delete', [AdminController::class,'contactsDelete'])->name('contacts.delete');
 });
 
 // User

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PagesTableSeeder::class,
             FeaturesTableSeeder::class,
+            ServicesTableSeeder::class,
         ]);
     }
 }

@@ -39,7 +39,7 @@ class UserRegisterController extends Controller
       $user->email          = $request->email;
       $user->phone          = $request->phone;
       $user->password       = Hash::make($request->password);
-      $user->status         = 0;
+      $user->status         = 1;
       $user->remember_token = Str::random(100);
       $user->save();
 
